@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Form</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        #questionForm {
+            height: 86vh;
+            width: 90vw;
+            background-color: white;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="file"] {
+            margin-top: 12px;
+            width: 80vw;
+            height: 6vh;
+            text-align: center;
+        }
+
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        input[type="text"]:active,
+        input[type="url"]:active {
+            border: blueviolet;
+        }
+
+        @media (min-width:700px) {
+            #questionForm {
+                height: 86vh;
+                width: 70vw;
+            }
+
+            input[type="text"],
+            input[type="url"],
+            input[type="file"] {
+                margin-top: 4vh;
+                width: 80%;
+                height: 6vh;
+                text-align: center;
+            }
+        }
+
+        #mybtn {
+            width: 80%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn {
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: rgb(27, 215, 80);
+            border: none;
+            border-radius: 12px;
+            color: white;
+        }
+
+        h1 {
+            padding-top: 12px;
+        }
+
+        span {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    {{>header}}
+    <form id="questionForm" action="/upload" method="post" enctype="multipart/form-data">
+        <h1>Welcome <span>{{curr_user.name}}</span></h1>
+        <input type="text" id="title" name="title"  placeholder="Title">
+
+        <input type="text" id="questionText" name="questionText" placeholder="Question Text:"></input>
+
+        <input type="text" id="answer" name="answer" placeholder="Answer">
+
+        <input type="file" id="image" name="ansImage" accept="image/*">
+
+        <input type="url" id="url" name="url" placeholder="URL">
+
+        <input type="text" id="subject" name="subject"  placeholder="Subject">
+
+        <input type="text" id="topic" name="topic" placeholder="Topic">
+
+        <div id="mybtn"><button id="btn">Submit</button></div>
+    </form>
+
+    <script>
+        // Navbar
+        const mobile_nav = document.querySelector('.mobile-navbar-btn');
+        const nav_header = document.querySelector('.header');
+        const toggleNavbar = () => {
+            nav_header.classList.toggle("active")
+        }
+
+        mobile_nav.addEventListener('click', () => toggleNavbar())
+    </script>
+
+</body>
+
+</html>

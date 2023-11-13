@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    {{>header}}
+    <div class="question-container">
+        <h1>Question Title</h1>
+        <h3>Question Text</h3>
+        <p>Complete answer to be in well-formatted type - shown in a paragraph.</p>
+        <p>Below that show a small subject, topics below the complete answer.</p>
+
+        <div class="navigation">
+            <a href="#" class="arrow" id="prev">&lt; Prev</a>
+            <a href="#" class="arrow" id="next">Next &gt;</a>
+        </div>
+    </div>
+
+    <script>
+
+        // Navbar
+        const mobile_nav = document.querySelector('.mobile-navbar-btn');
+        const nav_header = document.querySelector('.header');
+        const toggleNavbar = () => {
+            nav_header.classList.toggle("active")
+        }
+
+        mobile_nav.addEventListener('click', () => toggleNavbar())
+
+
+
+
+
+        // Dummy data for demonstration
+        const questions = [
+            { id: 1, title: "Question 1", text: "Question Text 1", answer: "Answer 1", subject: "Subject 1", topics: ["Topic 1.1", "Topic 1.2"] },
+            { id: 2, title: "Question 2", text: "Question Text 2", answer: "Answer 2", subject: "Subject 2", topics: ["Topic 2.1", "Topic 2.2"] },
+            // Add more questions as needed
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function displayQuestion(index) {
+            const question = questions[index];
+            document.querySelector('h1').textContent = question.title;
+            document.querySelector('h3').textContent = question.text;
+            document.querySelector('p').textContent = question.answer + "\n\nSubject: " + question.subject + "\nTopics: " + question.topics.join(", ");
+        }
+
+        document.getElementById('prev').addEventListener('click', function (e) {
+            e.preventDefault();
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion(currentQuestionIndex);
+            }
+        });
+
+        document.getElementById('next').addEventListener('click', function (e) {
+            e.preventDefault();
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion(currentQuestionIndex);
+            }
+        });
+
+        // Initial display
+        displayQuestion(currentQuestionIndex);
+        const arr = {{user}}
+        console.log(arr[1].title)
+    </script>
+
+</body>
+
+</html>

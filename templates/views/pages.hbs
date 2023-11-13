@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-shadow: border-box;
+        }
+
+        html {
+            font: 63.5%;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        section {
+            margin: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: white;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        #Question {
+            height: 15vh;
+        }
+
+        #Answer {
+            height: 30vh;
+        }
+
+        #Image {
+            height: 40vh;
+        }
+
+        #Submit-time {
+
+            height: 5vh;
+        }
+
+        #Subject {
+            height: 10vh;
+        }
+
+        #Subject,
+        #Topic {
+            height: 5vh;
+        }
+
+        span {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .mybtn {
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        #btn,#back {
+            color: white;
+            background-color: #09a81e;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3rem;
+            width: 8em;
+            font-size: large;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        #btn:hover,#btn:active,#back:hover,#back:active{
+            background-color: #09861a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button id="back">Back</button>
+        <h1>Question</h1>
+    </header>
+
+    <section>
+        <ul>
+            <li id="Submit-time">Submit-time: <span id="st"></span></li>
+            <li id="Subject">Subject: <span id="subj"></span></li>
+            <li id="Topic">Topic: <span id="topic"></span></li>
+            <li id="Question">Question: <span id="ques"></span></li>
+            <li id="Answer">Answer: <span id="ans"></span></li>
+            <li id="Image">Image: <span id="image"></span></li>
+        </ul>
+    </section>
+
+    <div class="mybtn">
+        <button id="btn">Print</button>
+    </div>
+
+</body>
+
+</html>
